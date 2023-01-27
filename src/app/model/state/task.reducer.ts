@@ -12,7 +12,7 @@ const _taskReducer = createReducer(initialState ,
     
     on(createTask, (state: any = initialState, {payload}: any) => {
 
-        console.log(" initial state "+JSON.stringify(state));
+        //console.log(" initial state "+JSON.stringify(state));
           let tt: any = [];
           if(state.length ==0)
           tt = new Array();
@@ -22,7 +22,7 @@ const _taskReducer = createReducer(initialState ,
             { name : x.name , status: x.status, id:x.id};
             tt.push(rt);
              }) };   // clone the task litems 
-         console.log(" new state.taskitem "+JSON.stringify(tt));
+         //console.log(" new state.taskitem "+JSON.stringify(tt));
            if(Array.isArray(tt)){
             let t: Task =  {
                 name: payload.name,
@@ -58,7 +58,7 @@ const _taskReducer = createReducer(initialState ,
         tt2 =  tt2.filter(elements => {
           return elements !== null;
          }); //tt2.filter(notEmpty);
-       console.log(" deleting state "+JSON.stringify(tt2));
+       //console.log(" deleting state "+JSON.stringify(tt2));
       return  tt2
     
     }),
@@ -83,12 +83,12 @@ const _taskReducer = createReducer(initialState ,
          let comIdx = -1;
         tt3.forEach((element: any,index: any)=>{
                 if(element.id == payload.id) {
-                    console.log("ele: "+JSON.stringify(element));
+                    //console.log("ele: "+JSON.stringify(element));
                     let rt :Task = 
                     { name : element.name , status: element.status, id:element.id};
                     rt.status = !(rt.status);
                     comIdx = index;
-                    console.log("completeTask  "+JSON.stringify(rt));
+                    //console.log("completeTask  "+JSON.stringify(rt));
                 };
              });
         if(comIdx >-1)
@@ -107,7 +107,7 @@ const _taskReducer = createReducer(initialState ,
        state.forEach((x:any )=> { 
         tt3.push(x);
             })
-        console.log(" list state "+JSON.stringify(tt3));
+        //console.log(" list state "+JSON.stringify(tt3));
       return tt3;
     
     })
@@ -115,7 +115,7 @@ const _taskReducer = createReducer(initialState ,
     );
 
     function notEmpty<Task>(value: Task | null | undefined): value is Task {
-        console.log(" notE "+JSON.stringify(value))
+        //console.log(" notE "+JSON.stringify(value))
         return value === null || value === undefined;
     }
 export function taskReducer (state:any , action:any){

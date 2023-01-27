@@ -6,7 +6,7 @@
     <div class="sub-section-1">
 
         <form  [formGroup]="taskForm" (ngSubmit)="onSubmit()"> 
-            <div ><!--fxFlex="5" -->
+            <div >
                <div class="header"></div>
              </div>
            
@@ -16,9 +16,12 @@
               <label for="task-name">Task Name: </label>
               <input #tasker id="task-name" type="text" formControlName="taskName"
                 [ngStyle]="taskStyle" (blur)="onBlurTask()" required>
-                <div class="taskErrorMsg" *ngIf="taskForm.get('taskName')?.hasError('incorrect')">   <!-- invalidNumber is the key-->
+                <div class="taskErrorMsg" *ngIf="taskForm.get('taskName')?.hasError('incorrect')">   
                       Please provide a Task 
                 </div>  
+                <div class="taskErrorMsg" *ngIf="taskForm.get('taskName')?.hasError('xss')">   
+                      Please provide valid Task 
+                 </div>
                 </div>
                 <div style="float:right"> 
                 <label for="dummy-name">&nbsp;</label>
@@ -38,8 +41,7 @@
                
               <div> 
 
-               <!--  <app-task ></app-task> --> 
-               <!-- <i class="fa fa-trash">&nbsp;</i> -->
+               
         
                <div *ngIf="tasks.length > 0; else loading">
                 <h5> Task List </h5>
@@ -58,14 +60,7 @@
                   </tr>
                 </tbody>
                </table>
-                 <!-- <li *ngFor="let task of tasks   trackBy: trackById"> 
-                  
-                   <span  class="taskElement"> 
-                     <span  (click)="completeTask(task.id)"  
-                     [ngClass]="task.status ? 'success' : 'danger'" class="taskStatus"> </span> 
-                        {{ task.name}}     
-                    <span (click)="deleteTask(task.id)"  class="taskElementControls"> </span> </span>
-                </li>    -->
+     
               </div>
               </div>
            
@@ -77,7 +72,7 @@
             </ng-template>
 
            </div>
-            <div > <!-- fxFlex="5" fxLayoutAlign="space-around center"-->
+            <div > 
                <div  fxFlex="50" fxFlex.lt-lg="80"></div>
             </div>
           </form>
