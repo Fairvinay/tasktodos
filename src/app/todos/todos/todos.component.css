@@ -1,0 +1,152 @@
+  /* Item sizing */
+  .taskItem {
+    flex: 0 1 calc(33.3% - 32px);
+  }
+
+  
+:host {
+    margin:0;
+    background : #222553;
+    font-family: 'Work Sans', sans-serif;
+   font-weight: 300;
+  
+    color:rgb(48, 6, 199);
+  }
+.taskingRow {
+   float:left;
+   margin-left:10px;
+   position: relative;
+   text-align: center;
+}
+.taskErrorMsg {
+  clear:both;line-height: 8px; height:10px;
+  font-size: 12px;
+  color:red;
+  margin-left:-5px;
+}
+.taskLister{
+     border-color:aqua;
+     border-radius: 2px;
+     margin-top:50px;
+     float: left;
+
+     width: 200px;
+     margin-left: 40px;
+}
+input[type=text] {
+    padding: 5px;
+    margin:3px 0; /* add top and bottom margin */
+  }
+.rowAlign{
+    margin-top:25px;
+}
+table {
+  width:200px;
+  
+  border: 2px dotted rgb(144, 214, 245, 0.4);
+  border-radius: 3px;
+  box-shadow: 1px 2px 2px 1px rgba(149, 192, 247, 0.2);
+}
+.tdTaskElement {
+  width:20px;
+  height:20px;
+  
+}
+.tdTaskText{
+  width:123px;
+
+  padding-left:5px;
+  column-span:3 ;
+}
+.tdTaskElementControls {
+  float:right;
+  width: 21px;
+  height:21px; 
+  /*text-align: right;
+  justify-content: right;*/
+  margin-right : -20;
+  margin-top:-5px;
+  /* position:fixed; */
+  /* width:auto; */
+  display:block;
+  background-repeat: no-repeat;
+  /* background-size: contain;
+  background-position: center center; */
+  background-image: url("../../../assets/images/smalltrash.png");
+}
+.trTaskElement {
+  width:100%;
+  display:inline-table;
+}
+.taskElement {
+    padding: 2px;
+   /* display: inline;*/
+   display: contents;
+   margin: 5px;
+
+    border-radius: 1px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+}
+.danger {
+    width: 21px;
+    height: 21px;
+    /* position:absolute;*/
+    background-image: url("../../../assets/images/smallunchecked.png");
+    display:block;
+}
+.success {
+    width: 21px;
+    height: 21px;
+    /*  position:absolute;*/
+    background-image: url("../../../assets/images/smallchecked.png");
+    display:block;
+}
+.taskFocus {
+   text-decoration: underline;
+}
+.taskElementControls {
+
+    width: 21px;
+    height: 21px;
+    float:right;
+    display:table-cell;
+    background-image: url("../../../assets/images/smalltrash.png");
+    top:2px;
+    right:2px;
+    margin-top: -2px;
+
+}
+ul {
+    list-style-type: disc;
+    
+    margin:0;
+}
+ul li { 
+    display: table-cell;
+    line-height: 23px;
+    height: auto;
+    width: 100%;
+    vertical-align: middle;
+    float:left;
+    text-align: center;
+    margin: 10px;
+
+    /*list-style-type: none;*/
+}
+  button {
+  
+    padding: 10px;
+    display: inline;
+    border-radius: 2px;
+    font-family: "Arial";
+    border: 0;
+    margin: 0 10px;
+    background: rgb(5, 38, 185);
+    font-size: 15px;
+    line-height: 15px;
+    color: white;
+    width: auto;
+    height: auto;
+    box-sizing: content-box;
+}

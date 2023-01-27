@@ -1,0 +1,34 @@
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+ 
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="cardInner">
+    <div [style.grid-area]="'header'">
+      Header
+    </div>
+
+    <div [style.grid-area]="'content'">
+      Content
+
+      <input type="test" #tasks>
+    </div>
+
+    <div [style.grid-area]="'footer'">
+      Footer
+     </div>
+
+  </div>
+
+   
+
+  
+
+</div>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,91 @@
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div fxLayout="row" fxFlexOrder="3" >  
+
+    <div class="sub-section-1">
+
+        <form  [formGroup]="taskForm" (ngSubmit)="onSubmit()"> 
+            <div ><!--fxFlex="5" -->
+               <div class="header"></div>
+             </div>
+           
+              <div class ="taskingRow">
+               <div class="">
+                <div style="float:left">
+              <label for="task-name">Task Name: </label>
+              <input #tasker id="task-name" type="text" formControlName="taskName"
+                [ngStyle]="taskStyle" (blur)="onBlurTask()" required>
+                <div class="taskErrorMsg" *ngIf="taskForm.get('taskName')?.hasError('incorrect')">   <!-- invalidNumber is the key-->
+                      Please provide a Task 
+                </div>  
+                </div>
+                <div style="float:right"> 
+                <label for="dummy-name">&nbsp;</label>
+                <button class="buldge" (click)="addTask()" > 
+                  Add Task 
+
+                </button>
+                   </div>
+                </div>
+              <div class="rowAlign" >
+               
+               </div>
+              
+            </div>
+            <div class="taskLister"  >  
+              
+               
+              <div> 
+
+               <!--  <app-task ></app-task> --> 
+               <!-- <i class="fa fa-trash">&nbsp;</i> -->
+        
+               <div *ngIf="tasks.length > 0; else loading">
+                <h5> Task List </h5>
+                <table  style="">
+                     <tbody> 
+                  <tr class="trTaskElement" *ngFor="let task of tasks   trackBy: trackById">
+                    <td (click)="completeTask(task.id)" 
+                    [ngClass]="task.status ? 'success' : 'danger'"
+                    class="tdTaskElement"></td>
+                     <td col-span="3" class="tdTaskText">  {{ task.name}} </td>
+                    <td col-span="1" style="width:21px;" (click)="deleteTask(task.id)">
+                      <span class="tdTaskElementControls">
+
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+               </table>
+                 <!-- <li *ngFor="let task of tasks   trackBy: trackById"> 
+                  
+                   <span  class="taskElement"> 
+                     <span  (click)="completeTask(task.id)"  
+                     [ngClass]="task.status ? 'success' : 'danger'" class="taskStatus"> </span> 
+                        {{ task.name}}     
+                    <span (click)="deleteTask(task.id)"  class="taskElementControls"> </span> </span>
+                </li>    -->
+              </div>
+              </div>
+           
+            
+            <ng-template #loading>
+                <div>
+                    There aren't any todos. Why don't you <span class="taskFocus" (click)="taskFocus()">create one?</span>
+                </div>
+            </ng-template>
+
+           </div>
+            <div > <!-- fxFlex="5" fxLayoutAlign="space-around center"-->
+               <div  fxFlex="50" fxFlex.lt-lg="80"></div>
+            </div>
+          </form>
+      
+
+    </div>  
+    <div class="sub-section-2">
+
+
+    </div>  
+</div> 
